@@ -519,7 +519,7 @@ header{
     .navbar ul{
         position: absolute;
         background-color: rgba(0, 0, 0, 0.65);
-        height: 90vh;
+        height: 80vh;
         width: 40vw;
         right: 0px;
         top: 10vh;
@@ -618,14 +618,13 @@ header{
     /*Nav Ul */
     .navbar ul{
         width: 65vw;
+        height: 50vh;
     }
     /* Header */
     header{
         background-size: auto;
         background-position: 15%;
-        
     }
-
     /* About Info*/
      .about-info p{
         position: relative;
