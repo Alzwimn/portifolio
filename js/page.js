@@ -1,4 +1,7 @@
 const aboutSection = document.querySelector("#about");
+const burger = document.querySelector(".s-burger");
+const nav = document.querySelector(".nav-links");
+const navAnchor = document.querySelectorAll(".nav-links li a");
 
 
 //check if element is visible in screen
@@ -22,13 +25,12 @@ function aboutSectionAnimation(){
 }
 
 const navSlide = () =>{
-    const burger = document.querySelector(".s-burger");
-    const nav = document.querySelector(".nav-links");
-    const navLinks = document.querySelectorAll(".nav-links li"); 
+    const navLinks = document.querySelectorAll(".nav-links li");
 
     burger.addEventListener("click", () => {
         nav.classList.toggle("links-active");
-
+        nav.classList.toggle("open");
+        const anchorLinks = document.querySelectorAll(".navlinks li a");
         navLinks.forEach((link, index) => {
             if(link.style.animation){
                 link.style.animation = "";
@@ -36,10 +38,33 @@ const navSlide = () =>{
                 link.style.animation = `navLinkFade ease-out forwards ${index / 7 + 1}s`;
             }
         });
-        //Cross animation
-        burger.classList.toggle("toggle");
+       
     });
+}
+// Close nav by clicking on links
+const navClose = () => {
     
+    navAnchor.forEach( (a) => { 
+        a.addEventListener("click", () => {
+            if(nav.classList.contains("open")){
+                burger.click();
+            }
+        });
+    });
+}
+
+//Smooth scrolling
+const smoothScroll = () =>{
+    navAnchor.forEach((a) => {
+        a.addEventListener("click", () => {
+            event.preventDefault();
+            let targetPage = a.getAttribute("href");
+            window.scrollTo({
+                top: document.querySelector(targetPage).offsetTop,
+                behavior: "smooth"
+            });
+        });
+    });
 }
 
 
@@ -47,5 +72,7 @@ const navSlide = () =>{
 const applications = () => {
     observer.observe(aboutSection);
     navSlide();
+    navClose();
+    smoothScroll();
 }
 applications();
