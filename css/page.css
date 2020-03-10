@@ -1,0 +1,481 @@
+:root{
+    --dark: #2c3531;
+    --green: #116466;
+    --dark-orange: #d9b08c;
+    --light-orange: #FFCB9A;
+    --light-blue: rgb(100, 170, 151);
+
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    overflow-x: hidden;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    overflow-x: hidden;
+}
+/* Navegation */ 
+nav{
+    height: 10vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+}
+nav ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+    list-style: none;
+}
+nav ul li{
+    margin: 0rem 2rem;
+    border-radius: 10%;
+    border-bottom: 0.2rem solid var(--green);
+    transition: all ease 0.7s;
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--dark-orange);
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+
+    transition: all ease 0.7s;
+}
+
+nav ul li:hover{
+    border-radius: 30%;
+}
+nav ul li a:hover{
+    color: var(--light-orange);
+}
+
+.social-media{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    letter-spacing: 0.2rem;
+    transition: all 0.1s;
+}
+.social-media:hover{
+    color: rgb(253, 253, 253);
+    padding-top: 0.3rem;
+    border-top: 2px solid var(--green);
+    border-radius: 10%;
+}
+
+/* Main Header */ 
+header{
+    min-height: 100vh;
+    background-image: url("../img/background-cover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-gap: 0.2rem;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: ". Htext";
+}
+.header-text{
+    grid-area: Htext;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header-text h1{
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+.header-text p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* About section */
+
+#about{
+    margin-top: 20px;
+    background-color: var(--dark);
+    color: var(--dark-orange);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-info{
+    width: 70%;
+    height: 70%;
+    display: grid;
+    grid-template-columns:2fr 1fr;
+    grid-template-areas: "Atitle Aimg"
+                         "Apar Aimg";    
+}
+.about-info img{
+    grid-area: Aimg;
+    height: 100%;
+    width: 100%;
+    transform: translateX(-430%);
+    /*animation: manAppear 2s ease-in;*/
+}
+.about-info h2{
+    grid-area: Atitle;
+    justify-self: center;
+    align-self: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;    
+    font-size: 1.9rem;
+    opacity: 0;
+    /*animation: titleAppear 4.6s ease-in;*/
+}
+.about-info p{
+    grid-area: Apar;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0;
+    /*animation: paraAppear 5.5s linear;*/
+}
+/* About Section Animation */
+@keyframes manAppear{
+    from { transform: translateX(-430%);} 
+    to { transform: translateX(0%); }
+}
+@keyframes titleAppear{
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes paraAppear{
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.image-animation{
+    animation: manAppear 1.5s ease-in forwards;
+}
+.title-animation{
+    animation: titleAppear 4.6s ease forwards;
+}
+.para-animation{
+    animation: paraAppear 5.5s ease forwards;
+}
+
+/* Projetos */
+#projects{
+    margin-top: 20px;
+    background-image: url("../img/stars.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.projects-main{
+    margin-top: 20px;
+    height: 80vh;
+    width: 80vw;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "project1 viewer1 project2"
+    "project3 viewer2 project4";
+}
+
+/* Positioning projects */
+.project-1{
+    grid-area: project1;
+    position: relative;
+    background-color: black;
+    border-radius: 30%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.project-2{
+    grid-area: project2;
+    position: relative;
+    background-color: black;
+    border-radius: 30%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.project-3{
+    grid-area: project3;
+    position: relative;
+    background-color: black;
+    border-radius: 30%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.project-4{
+    grid-area: project4;
+    position: relative;
+    background-color: black;
+    border-radius: 30%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Styling Tiltes*/
+.project-1 h1, .project-2 h1,
+.project-3 h1, .project-4 h1{
+   opacity: 0.5;
+}
+/*Tiltes Hovering */
+.project-1:hover, .project-2:hover,
+.project-3:hover, .project-4:hover{
+    opacity: 0.5;
+    transition: all 0.5s ease;
+}
+
+/*Align internal divs */
+.project-1 > div, .project-2 > div,
+.project-3 > div, .project-4 > div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+/* COloring e styling links while hovering */
+.project-1 > div a, .project-2 > div a,
+.project-3 > div a, .project-4 > div a{
+    margin: 10px 0px;
+    color: var(--green);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+.project-1 > div a:hover, .project-2 > div a:hover,
+.project-3 > div a:hover, .project-4 > div a:hover{
+    color: var(--dark-orange);
+    border-bottom: 2px solid var(--light-orange);
+}
+
+/*Small animation */
+.project-1:hover > div,
+.project-3:hover > div{
+    opacity: 1;
+    transform: translateX(100%);
+    background-color: whitesmoke;
+    transition: all 1.3s ease;
+}
+.project-2:hover > div,
+.project-4:hover > div{
+    opacity: 1;
+    transform: translateX(-100%);
+    background-color: whitesmoke;
+    transition: all 1.3s ease;
+}
+
+ /*Contact Section*/
+
+#contact{
+    margin-top: 20px;
+    height: 100vh;
+    background-image: url("../img/message.svg");
+    background-repeat: no-repeat;
+    background-size: 30vw 100vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-areas: 
+    ". c-info c-form";
+}
+
+/*Contact info */ 
+.contact-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.contact-info h2,p{
+    text-align: center;
+    margin: 10px 0px;
+}
+.contact-info h2{
+    color: var(--dark-orange);
+}
+.contact-info p{
+    color: var(--green);
+}
+
+/* Positioning form */
+.contact-info{
+    grid-area: c-info;
+}
+.formulario{
+    grid-area: c-form;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formulario h1{
+    align-self: center;
+    justify-self: center;
+}
+.form{
+    margin-top: 30px;
+    width: 100%;;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+}
+
+/* Style form elements*/
+.formulario h1{
+    color: var(--dark-orange);
+}
+.form-name, .form-mail{
+    position: relative;;
+    width: 50%;
+    height: 50px;
+    overflow: hidden;
+}
+.form-name input, .form-mail input{
+    width: 100%;
+    height: 100%;
+    color: var(--light-orange);
+    font-size: 1.1rem;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+.form-name label, .form-mail label{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid var(--dark);
+}
+.form-name label::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -2px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid var(--light-blue);
+    transform: translateX(-100%);
+    transition: all ease-out 0.5s;
+}
+.form-mail label::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -2px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid var(--light-blue);
+    transform: translateX(-100%);
+    transition: all ease-out 0.5s;
+}
+.content-name{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.5s ease;
+}
+
+.form-name input:focus + .label-name .content-name, 
+.form-name input:valid + .label-name .content-name{
+    transform: translateY(-150%);
+    font-weight: 700;
+    color: var(--light-blue);
+}
+.form-name input:focus + .label-name::after,
+.form-name input:valid + .label-name .label-name::after{
+    transform: translateX(0%);
+}
+.form-mail input:focus + .label-mail .content-name, 
+.form-mail input:valid + .label-mail .content-name{
+    transform: translateY(-150%);
+    font-weight: 700;
+    color: var(--light-blue);
+}
+.form-mail input:focus + .label-mail::after,
+.form-mail input:valid + .label-mail .label-name::after{
+    transform: translateX(0%);
+}
+/*Styling message box */
+.form-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    position: relative;
+    top: 30px;
+}
+.form-message label{
+    align-self: flex-start;
+    padding-bottom: 10px;
+}
+.form-message textarea{
+    width: 100%;
+    border: 2px solid var(--dark);
+    border-radius: 3%;
+    color: var(--light-orange);
+    font-size: 1.2rem;
+    font-weight: 900;
+    outline: none;
+}
+.enviar{
+    position: relative;
+    top: 80px;
+    width: 100px;
+    height: 50px;
+    font-size: 0.9rem;
+    outline: none;
+    border: none;
+    border-radius: 30%;
+    color: var(--light-blue);
+    background-color: rgba(0, 0, 0, 0.856);
+    transition: all 0.5s ease;
+}
+.enviar:hover{
+    color: var(--light-orange);
+    background-color: var(--dark);
+}
